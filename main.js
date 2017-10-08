@@ -6,13 +6,15 @@ $(function() {
       sentenceNumber = 0,
       letterNumber = 0,
       checkString = '',
-      highlightOriginal = $("#yellow-block").offset().left - 60,
+      highlightOriginal = 0,
       highlight = highlightOriginal,
       checkCount = 0,
       xCount = 0,
       timerStart = Date.now(),
       wordCount = 54;
   
+      console.log(highlightOriginal);
+      console.log(highlight);
   function displayTarget(s, l) {
       $("#p-target").text(sentences[s].charAt(l));
   }
@@ -45,6 +47,7 @@ $(function() {
           $("#p-sentence").empty();
           $("#p-sentence").text(sentences[sentenceNumber]);
           $("#feedback").empty();
+          $('.press').removeClass("press");  
           displayTarget(sentenceNumber, letterNumber);
         }
       }
@@ -54,6 +57,7 @@ $(function() {
   function highlightPlacement() {
     if(checkString != sentences[sentenceNumber]){
       highlight = highlight + 17.2;
+      console.log(highlightOriginal);
       console.log(highlight);
       $("#yellow-block").css('left', highlight);
     } else if (checkString == sentences[sentenceNumber]) {
@@ -104,5 +108,8 @@ $(function() {
   $("#p-sentence").text(sentences[sentenceNumber]);
   displayTarget(sentenceNumber, letterNumber);
   $("#yellow-block").css('left', highlightOriginal);
+
+  console.log(highlightOriginal);
+  console.log(highlight);
 
 })
