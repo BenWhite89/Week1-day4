@@ -7,10 +7,10 @@
   font-family: Courier New, Courier, monospace;
   font-size: 24px;
   letter-spacing: 3px;
+  padding: 0;
 }
 
 #yellow-block {
-  position: absolute;
   margin-top: 10px;
   width: 8px;
   height: 15px;

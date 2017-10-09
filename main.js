@@ -1,6 +1,7 @@
 $(function() {
 
   $("#keyboard-upper-container").hide();
+  $("#target").css('padding', 0);
 
   var sentences = ['ten ate neite ate nee enet ite ate inet ent eate', 'Too ato too nOt enot one totA not anot tOO aNot', 'oat itain oat tain nate eate tea anne inant nean', 'itant eate anot eat nato inate eat anot tain eat', 'nee ene ate ite tent tiet ent ine ene ete ene ate'],
       sentenceNumber = 0,
@@ -13,8 +14,8 @@ $(function() {
       timerStart = Date.now(),
       wordCount = 54;
   
-      console.log(highlightOriginal);
-      console.log(highlight);
+  $("#yellow-block").css('left', `${highlightOriginal}em`);
+
   function displayTarget(s, l) {
       $("#p-target").text(sentences[s].charAt(l));
   }
@@ -56,14 +57,11 @@ $(function() {
 
   function highlightPlacement() {
     if(checkString != sentences[sentenceNumber]){
-      highlight = highlight + 17.2;
-      console.log(highlightOriginal);
-      console.log(highlight);
-      $("#yellow-block").css('left', highlight);
+      highlight = highlight + .73;
+      $("#yellow-block").css('left', `${highlight}em`);
     } else if (checkString == sentences[sentenceNumber]) {
       highlight = highlightOriginal;
-      console.log(highlight);
-      $("#yellow-block").css('left', highlight);
+      $("#yellow-block").css('left', `${highlight}em`);
     }
   }
   
@@ -107,9 +105,6 @@ $(function() {
   $("#target-letter").prepend("<p id='p-target'></p>");
   $("#p-sentence").text(sentences[sentenceNumber]);
   displayTarget(sentenceNumber, letterNumber);
-  $("#yellow-block").css('left', highlightOriginal);
-
-  console.log(highlightOriginal);
-  console.log(highlight);
+  $("#yellow-block").css('left', `${highlightOriginal}em`);
 
 })
